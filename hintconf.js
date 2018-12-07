@@ -1,4 +1,3 @@
-//var HtmlReporter = require('protractor-beautiful-reporter');
 exports.config = {
 //  seleniumAddress: 'http://localhost:4444/wd/hub',
   getPageTimeout: 30000,
@@ -15,19 +14,21 @@ exports.config = {
   capabilities: {
     browserName: 'chrome',
     chromeOptions: { args: [
-      "--headless",
-      "--disable-gpu",
+      //"lang=en-EN",
+      //"--headless",
+      //"--disable-gpu",
       "--window-size=800,600",
       "--disable-browser-side-navigation"]
     }
   },
-  specs: ['wi-fi_system_log.js'],
+  specs: ['hints_test.js'],
   onPrepare: function(){
     browser.get('http://192.168.1.1');
     var until = protractor.ExpectedConditions;
     var login = element(by.xpath('//input[@name="loginLogin"]'));
     var password = element(by.xpath('//input[@name="loginPassword"]'));
     var submit = element(by.tagName('button'));
+    var lang = element(by.xpath('//div[@id="sb-1"]/a'));
     browser.driver.wait(function () {
       browser.wait(until.visibilityOf(login), 10000);
       return login;
@@ -39,6 +40,13 @@ exports.config = {
       return password;
     }).then(function(){
       password.clear().sendKeys('1');
+    });
+    browser.driver.wait(function () {
+      browser.wait(until.visibilityOf(lang), 10000);
+      return lang;
+    }).then(function(el){
+      el.click();
+      element(by.linkText('English')).click()
     });
     submit.click();
     return browser.driver.wait(function() {
