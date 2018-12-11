@@ -4,16 +4,20 @@ exports.config = {
   framework: 'jasmine2',
   jasmineNodeOpts: { defaultTimeoutInterval: 30000 },
   rootElement: 'keenetic',
+  seleniumAddress: 'http://localhost:4723/wd/hub',
   capabilities: {
     browserName: 'chrome',
-    chromeOptions: { args: [
-      //"--headless",
-      //"--disable-gpu",
-      "--window-size=800,600",
-      "--disable-browser-side-navigation"]
-    }
+    platformName: 'Android',
+    deviceName: 'Android Emulator',
   },
-  specs: ['hints_test.js'],
+  /*capabilities: {
+    browserName: 'chrome',
+    platformName: 'Android',
+    platformVersion: '7.0',
+    deviceName: 'Android Emulator',
+  },*/
+//baseUrl: 'http://10.0.2.2:8000',
+  specs: ['hints_test_mobile.js'],
   onPrepare: function(){
     browser.get('http://192.168.1.1');
     browser.driver.manage().deleteAllCookies();

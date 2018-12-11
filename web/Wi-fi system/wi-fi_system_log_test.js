@@ -7,7 +7,6 @@ describe("Wi-fi system log testing: ",function(){
     });
   }
   it("selecting wi-fi system option",function(){
-    //browser.ignoreSynchronization = true;
     var menu_button = element(by.id('ndm_menu_toggle'));
     var option = element(by.linkText('Wi-Fi-система'));
     browser.driver.wait(function () {
@@ -55,7 +54,6 @@ describe("Wi-fi system log testing: ",function(){
       else if (a < b) return 1;
       return 0;
     });
-    //counter=0;
     devices.each(function(){
       console.log(cntr+": "+sorted[cntr++]);
     });
