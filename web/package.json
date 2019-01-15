@@ -1,0 +1,21 @@
+{
+  "name": "tests",
+  "version": "1.0.0",
+  "description": "protractor web tests for keenetic routers",
+  "main": "index.js",
+  "dependencies": {
+    "rgb-hex": "^2.1.0"
+  },
+  "devDependencies": {
+    "jasmine-spec-reporter": "^4.2.1",
+    "macaddress": "^0.2.9",
+    "protractor-http-mock": "^0.10.0",
+    "rgb-hex": "^2.1.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "andrew",
+  "repository": "https://github.com/clawdebob/protractor.git",
+  "license": "ISC"
+}
