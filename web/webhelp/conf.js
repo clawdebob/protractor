@@ -1,3 +1,4 @@
+let SpecReporter = require('jasmine-spec-reporter').SpecReporter;
 exports.config = {
     getPageTimeout: 30000,
     allScriptsTimeout: 30000,
@@ -16,6 +17,11 @@ exports.config = {
     },
     specs: ['hints_test.js'],
     onPrepare: () => {
+        jasmine.getEnv().addReporter(new SpecReporter({
+            spec: {
+                displayStacktrace: true
+            }
+        }));
         browser.get('http://localhost:3000');
         browser.driver.manage().deleteAllCookies();
         let until = protractor.ExpectedConditions,
