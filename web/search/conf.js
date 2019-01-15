@@ -9,13 +9,14 @@ exports.config = {
     chromeOptions: { args: [
       //"--headless",
       //"--disable-gpu",
-      "--window-size=800,600",
-      "--disable-browser-side-navigation"]
+      "--window-size=800,600"
+      //"--disable-browser-side-navigation"
+    ]
     }
   },
   specs: ['search_test.js'],
   onPrepare: function(){
-    browser.get('http://localhost:3000');
+    /*browser.get('http://localhost:3000');
     browser.driver.manage().deleteAllCookies();
     var until = protractor.ExpectedConditions;
     var login = element(by.xpath('//input[@name="loginLogin"]'));
@@ -40,12 +41,12 @@ exports.config = {
     }).then(function(el){
       el.click();
       element(by.linkText('Русский')).click()
-    });*/
+    });
     submit.click();
     return browser.driver.wait(function() {
       return browser.driver.getCurrentUrl().then(function(url) {
         return /dashboard/.test(url);
       });
-    }, 10000);
+  }, 10000);*/
   }
 };
