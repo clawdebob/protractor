@@ -5,7 +5,7 @@ describe('search test',function() {
 
    it('checking search with no results',() => {
        browser.get('http://localhost:3000');
-       let no_results = element.all(by.cssContainingText('.ng-scope','Sorry, we couldn\'t find anything')).get(0);
+       let no_results = element.all(by.cssContainingText('.ng-scope','Sorry, we didn\'t find anything')).get(0);
        browser.driver.wait(() => {
            browser.wait(until.visibilityOf(search), 10000,'search input field wasn\'t found');
            return search;
