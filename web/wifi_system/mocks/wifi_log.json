@@ -1,0 +1,72 @@
+{
+	"request": {
+      "path": "/rci/show/mws/log",
+      "method": "POST"
+    },
+    "response": {
+        "data": {
+            "log": {
+                "0": {
+                    "timestamp": "Jan 15 00:00:00",
+                    "mac": "ec:d0:9f:10:22:c8",
+                    "ap": "00:22:22:00:00:12",
+                    "band": 1,
+                    "segment": 0,
+                    "id": 0
+                },
+                "1": {
+                    "timestamp": "Jan 15 11:51:03",
+                    "mac": "04:4b:ed:42:26:c8",
+                    "ap": "00:22:22:00:00:12",
+                    "band": 1,
+                    "segment": 0,
+                    "id": 1
+                },
+                "2": {
+                    "timestamp": "Jan 15 11:58:09",
+                    "mac": "ec:d0:9f:10:22:c8",
+                    "band": 0,
+                    "left": {
+                        "ap": "00:22:22:00:00:12",
+                        "band": 1
+                    },
+                    "segment": 0,
+                    "id": 2
+                },
+                "3": {
+                    "timestamp": "Jan 15 11:58:17",
+                    "mac": "ec:d0:9f:10:22:c8",
+                    "ap": "00:22:22:00:00:12",
+                    "band": 1,
+                    "segment": 0,
+                    "id": 3
+                },
+                "4": {
+                    "timestamp": "Jan 15 13:24:09",
+                    "mac": "ec:d0:9f:10:22:c8",
+                    "ap": "50:ff:20:00:01:01",
+                    "band": 0,
+                    "left": {
+                        "ap": "00:22:22:00:00:12",
+                        "band": 1
+                    },
+                    "roam": "pmk",
+                    "segment": 0,
+                    "id": 4
+                },
+                "5": {
+                    "timestamp": "Jan 15 13:55:09",
+                    "mac": "ec:d0:9f:10:22:c8",
+                    "band": 0,
+                    "left": {
+                        "ap": "00:22:22:00:00:12",
+                        "band": 1
+                    },
+                    "segment": 0,
+                    "id": 5
+                }
+            },
+            "continued": true
+        }
+    }
+ }

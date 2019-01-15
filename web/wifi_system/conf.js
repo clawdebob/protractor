@@ -1,4 +1,6 @@
 //var HtmlReporter = require('protractor-beautiful-reporter');
+let SpecReporter = require('jasmine-spec-reporter').SpecReporter;
+
 exports.config = {
 //  seleniumAddress: 'http://localhost:4444/wd/hub',
   getPageTimeout: 30000,
@@ -15,15 +17,29 @@ exports.config = {
   capabilities: {
     browserName: 'chrome',
     chromeOptions: { args: [
-      "--lang=en-US",
       //"--headless",
       //"--disable-gpu",
       "--window-size=800,600",
       "--disable-browser-side-navigation"]
     }
   },
-  specs: ['wi-fi_system_log.js'],
-  onPrepare: function(){
+  baseUrl:'http://localhost:3000',
+  specs: ['wi-fi_system_log_test.js'],
+  onPrepare: function () {
+    jasmine.getEnv().addReporter(new SpecReporter({
+      spec: {
+        displayStacktrace: true
+      }
+    }));
+    require("protractor-http-mock").config = {
+        protractorConfig: "conf.js",
+    };
+},
+mocks: {
+	default: ['wifi_log.json'], // default value: []
+	dir: 'mocks' // default value: 'mocks'
+},
+  /*onPrepare: function(){
     browser.get('http://192.168.1.1');
     var until = protractor.ExpectedConditions;
     var login = element(by.xpath('//input[@name="loginLogin"]'));
@@ -47,5 +63,5 @@ exports.config = {
         return /dashboard/.test(url);
       });
     }, 10000);
-  }
+}*/
 };
