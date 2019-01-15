@@ -1,3 +1,4 @@
+
 exports.config = {
   getPageTimeout: 30000,
   allScriptsTimeout: 30000,
@@ -10,10 +11,14 @@ exports.config = {
     chromeOptions: { args: [
       //"--headless",
       //"--disable-gpu",
-      "--window-size=1280,720",
+      "--window-size=1280,720"
       //"--disable-browser-side-navigation"
     ]
     }
   },
   specs: ['smoke.js'],
+  onPrepare: function () {
+    require('jasmine-reporters');
+    jasmine.getEnv().addReporter(new jasmine.JUnitXmlReporter(null, true, true, 'testresults.e2e'));
+  }
 };
