@@ -2,7 +2,7 @@ describe('Wi-fi system log testing: ', () => {
     var until = protractor.ExpectedConditions;
     var mock = require('protractor-http-mock');
 
-    mock(['wifi_log.json']);
+    mock(['wifi_members.json']);
 
     function request(type,uri){
         browser.executeAsyncScript(
@@ -24,8 +24,7 @@ describe('Wi-fi system log testing: ', () => {
         var menu_button = element(by.id('ndm_menu_toggle'));
         //var option = element(by.linkText('Wi-Fi system'));
         var tab = element(by.linkText('Log'));
-
-        browser.driver.wait(() => {
+        /*browser.driver.wait(() => {
             browser.wait(until.visibilityOf(tab), 10000);
 
             return tab;
@@ -35,8 +34,8 @@ describe('Wi-fi system log testing: ', () => {
                 browser.sleep(5000);
                 tab.click();
             });
-        });
-        browser.sleep(5000);
+        });*/
+        browser.sleep(120000);
     });
 
     afterEach(function(){

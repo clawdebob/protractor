@@ -6,7 +6,7 @@ exports.config = {
   getPageTimeout: 30000,
   allScriptsTimeout: 30000,
   framework: 'jasmine2',
-  jasmineNodeOpts: { defaultTimeoutInterval: 30000 },
+  jasmineNodeOpts: { defaultTimeoutInterval: 120000 },
   /*onPrepare: function() {
      // Add a screenshot reporter and store screenshots to `/tmp/screenshots`:
      jasmine.getEnv().addReporter(new HtmlReporter({
@@ -25,7 +25,7 @@ exports.config = {
   },
   baseUrl:'http://localhost:3000',
   specs: ['wi-fi_system_log_test.js'],
-  onPrepare: function () {
+  onPrepare: () => {
     jasmine.getEnv().addReporter(new SpecReporter({
       spec: {
         displayStacktrace: true
@@ -36,8 +36,8 @@ exports.config = {
     };
 },
 mocks: {
-	default: ['wifi_log.json'], // default value: []
-	dir: 'mocks' // default value: 'mocks'
+	default: ['wifi_members.json','wifi_log.json'], // default value: []
+	dir: '../../mock_generator/mocks' // default value: 'mocks'
 },
   /*onPrepare: function(){
     browser.get('http://192.168.1.1');

@@ -1,0 +1,1168 @@
+{
+    "request": {
+        "path": "/rci/show/mws/log",
+        "method": "POST"
+    },
+    "response": {
+        "data": {
+            "log": {
+                "0": {
+                    "timestamp": "Jan 03 11:20:27",
+                    "mac": "aa:dd:cc:ee:44:55",
+                    "id": 0,
+                    "segment": 1,
+                    "band": 1,
+                    "left": {
+                        "ap": "50:ff:20:aa:aa:aa",
+                        "band": 1
+                    }
+                },
+                "1": {
+                    "timestamp": "Jan 04 23:26:25",
+                    "mac": "44:55:11:22:33:66",
+                    "id": 1,
+                    "segment": 0,
+                    "band": 0,
+                    "ap": "50:ff:20:aa:aa:aa"
+                },
+                "2": {
+                    "timestamp": "Jan 06 23:02:03",
+                    "mac": "aa:dd:cc:ee:44:55",
+                    "id": 2,
+                    "segment": 1,
+                    "band": 0,
+                    "ap": "50:ff:20:aa:aa:aa",
+                    "left": {
+                        "ap": "50:ff:20:00:01:01",
+                        "band": 1
+                    },
+                    "roam": "ft"
+                },
+                "3": {
+                    "timestamp": "Jan 08 04:58:24",
+                    "mac": "34:12:1a:88:16:09",
+                    "id": 3,
+                    "segment": 0,
+                    "band": 1,
+                    "ap": "50:ff:20:aa:aa:aa"
+                },
+                "4": {
+                    "timestamp": "Jan 22 16:29:46",
+                    "mac": "ec:d0:9f:11:30:a9",
+                    "id": 4,
+                    "segment": 1,
+                    "band": 1,
+                    "ap": "50:ff:20:00:00:14",
+                    "left": {
+                        "ap": "50:ff:20:00:00:14",
+                        "band": 1
+                    }
+                },
+                "5": {
+                    "timestamp": "Jan 24 11:58:43",
+                    "mac": "44:55:11:22:33:66",
+                    "id": 5,
+                    "segment": 0,
+                    "band": 1,
+                    "ap": "50:ff:20:00:01:01",
+                    "left": {
+                        "ap": "50:ff:20:aa:aa:aa",
+                        "band": 0
+                    },
+                    "roam": "ft"
+                },
+                "6": {
+                    "timestamp": "Jan 30 11:59:41",
+                    "mac": "df:09:9c:a4:78:32",
+                    "id": 6,
+                    "segment": 0,
+                    "band": 1,
+                    "left": {
+                        "ap": "50:ff:20:12:34:56",
+                        "band": 1
+                    }
+                },
+                "7": {
+                    "timestamp": "Feb 01 14:07:20",
+                    "mac": "aa:dd:cc:ee:44:55",
+                    "id": 7,
+                    "segment": 1,
+                    "band": 1,
+                    "ap": "50:ff:20:aa:aa:aa",
+                    "left": {
+                        "ap": "50:ff:20:aa:aa:aa",
+                        "band": 0
+                    }
+                },
+                "8": {
+                    "timestamp": "Feb 04 11:22:06",
+                    "mac": "af:90:aa:1b:e5:f7",
+                    "id": 8,
+                    "segment": 0,
+                    "band": 1,
+                    "left": {
+                        "ap": "50:ff:20:00:01:01",
+                        "band": 0
+                    }
+                },
+                "9": {
+                    "timestamp": "Feb 05 12:04:36",
+                    "mac": "aa:bb:cc:dd:ee:ff",
+                    "id": 9,
+                    "segment": 1,
+                    "band": 1,
+                    "left": {
+                        "ap": "50:ff:20:00:00:14",
+                        "band": 0
+                    }
+                },
+                "10": {
+                    "timestamp": "Feb 07 04:26:36",
+                    "mac": "df:09:9c:a4:78:32",
+                    "id": 10,
+                    "segment": 1,
+                    "band": 0,
+                    "ap": "50:ff:20:00:01:01",
+                    "left": {
+                        "ap": "50:ff:20:12:34:56",
+                        "band": 1
+                    },
+                    "roam": "ft"
+                },
+                "11": {
+                    "timestamp": "Feb 08 02:54:35",
+                    "mac": "aa:bb:cc:dd:ee:ff",
+                    "id": 11,
+                    "segment": 1,
+                    "band": 0,
+                    "left": {
+                        "ap": "50:ff:20:aa:aa:aa",
+                        "band": 0
+                    }
+                },
+                "12": {
+                    "timestamp": "Feb 08 06:58:55",
+                    "mac": "12:34:56:78:90:ab",
+                    "id": 12,
+                    "segment": 1,
+                    "band": 0,
+                    "ap": "50:ff:20:00:01:01"
+                },
+                "13": {
+                    "timestamp": "Feb 09 20:26:57",
+                    "mac": "af:90:aa:1b:e5:f7",
+                    "id": 13,
+                    "segment": 0,
+                    "band": 0,
+                    "ap": "50:ff:20:aa:aa:aa",
+                    "left": {
+                        "ap": "50:ff:20:aa:aa:aa",
+                        "band": 1
+                    }
+                },
+                "14": {
+                    "timestamp": "Feb 13 22:57:45",
+                    "mac": "aa:bb:cc:dd:ee:ff",
+                    "id": 14,
+                    "segment": 0,
+                    "band": 1,
+                    "ap": "50:ff:20:00:00:14",
+                    "left": {
+                        "ap": "50:ff:20:00:01:01",
+                        "band": 1
+                    },
+                    "roam": "pmk"
+                },
+                "15": {
+                    "timestamp": "Feb 19 20:18:59",
+                    "mac": "ec:d0:9f:11:30:a9",
+                    "id": 15,
+                    "segment": 1,
+                    "band": 1,
+                    "ap": "50:ff:20:00:00:14",
+                    "left": {
+                        "ap": "50:ff:20:00:00:14",
+                        "band": 0
+                    }
+                },
+                "16": {
+                    "timestamp": "Feb 20 13:50:49",
+                    "mac": "11:11:11:11:11:11",
+                    "id": 16,
+                    "segment": 1,
+                    "band": 1,
+                    "ap": "50:ff:20:00:00:14",
+                    "left": {
+                        "ap": "50:ff:20:00:00:14",
+                        "band": 0
+                    },
+                    "roam": "ft"
+                },
+                "17": {
+                    "timestamp": "Feb 20 21:42:52",
+                    "mac": "77:77:77:77:77:77",
+                    "id": 17,
+                    "segment": 1,
+                    "band": 0,
+                    "ap": "50:ff:20:12:34:56",
+                    "left": {
+                        "ap": "50:ff:20:12:34:56",
+                        "band": 1
+                    }
+                },
+                "18": {
+                    "timestamp": "Feb 23 04:25:36",
+                    "mac": "aa:dd:cc:ee:44:55",
+                    "id": 18,
+                    "segment": 1,
+                    "band": 0,
+                    "ap": "50:ff:20:00:00:14",
+                    "left": {
+                        "ap": "50:ff:20:12:34:56",
+                        "band": 1
+                    }
+                },
+                "19": {
+                    "timestamp": "Mar 01 23:09:01",
+                    "mac": "aa:dd:cc:ee:44:55",
+                    "id": 19,
+                    "segment": 0,
+                    "band": 1,
+                    "ap": "50:ff:20:aa:aa:aa",
+                    "left": {
+                        "ap": "50:ff:20:12:34:56",
+                        "band": 1
+                    },
+                    "roam": "ft"
+                },
+                "20": {
+                    "timestamp": "Mar 03 12:00:24",
+                    "mac": "77:77:77:77:77:77",
+                    "id": 20,
+                    "segment": 0,
+                    "band": 0,
+                    "ap": "50:ff:20:aa:aa:aa"
+                },
+                "21": {
+                    "timestamp": "Mar 03 22:29:55",
+                    "mac": "77:77:77:77:77:77",
+                    "id": 21,
+                    "segment": 1,
+                    "band": 0,
+                    "ap": "50:ff:20:aa:aa:aa",
+                    "left": {
+                        "ap": "50:ff:20:12:34:56",
+                        "band": 1
+                    }
+                },
+                "22": {
+                    "timestamp": "Mar 05 07:50:19",
+                    "mac": "df:09:9c:a4:78:32",
+                    "id": 22,
+                    "segment": 0,
+                    "band": 1,
+                    "ap": "50:ff:20:12:34:56",
+                    "left": {
+                        "ap": "50:ff:20:12:34:56",
+                        "band": 1
+                    },
+                    "roam": "ft"
+                },
+                "23": {
+                    "timestamp": "Mar 05 11:40:29",
+                    "mac": "aa:dd:cc:ee:44:55",
+                    "id": 23,
+                    "segment": 0,
+                    "band": 0,
+                    "ap": "50:ff:20:12:34:56",
+                    "left": {
+                        "ap": "50:ff:20:00:00:14",
+                        "band": 1
+                    },
+                    "roam": "ft"
+                },
+                "24": {
+                    "timestamp": "Mar 06 10:14:53",
+                    "mac": "aa:dd:cc:ee:44:55",
+                    "id": 24,
+                    "segment": 1,
+                    "band": 0,
+                    "ap": "50:ff:20:00:01:01",
+                    "left": {
+                        "ap": "50:ff:20:00:00:14",
+                        "band": 0
+                    },
+                    "roam": "pmk"
+                },
+                "25": {
+                    "timestamp": "Mar 09 05:20:40",
+                    "mac": "af:90:aa:1b:e5:f7",
+                    "id": 25,
+                    "segment": 0,
+                    "band": 0,
+                    "ap": "50:ff:20:00:01:01",
+                    "left": {
+                        "ap": "50:ff:20:00:01:01",
+                        "band": 1
+                    },
+                    "roam": "pmk"
+                },
+                "26": {
+                    "timestamp": "Mar 11 03:00:17",
+                    "mac": "34:12:1a:88:16:09",
+                    "id": 26,
+                    "segment": 0,
+                    "band": 1,
+                    "ap": "50:ff:20:12:34:56",
+                    "left": {
+                        "ap": "50:ff:20:12:34:56",
+                        "band": 0
+                    },
+                    "roam": "ft"
+                },
+                "27": {
+                    "timestamp": "Mar 20 05:33:58",
+                    "mac": "aa:dd:cc:ee:44:55",
+                    "id": 27,
+                    "segment": 0,
+                    "band": 1,
+                    "ap": "50:ff:20:aa:aa:aa",
+                    "left": {
+                        "ap": "50:ff:20:12:34:56",
+                        "band": 1
+                    }
+                },
+                "28": {
+                    "timestamp": "Mar 21 15:50:06",
+                    "mac": "34:12:1a:88:16:09",
+                    "id": 28,
+                    "segment": 0,
+                    "band": 1,
+                    "left": {
+                        "ap": "50:ff:20:12:34:56",
+                        "band": 0
+                    }
+                },
+                "29": {
+                    "timestamp": "Mar 31 22:17:00",
+                    "mac": "aa:dd:cc:ee:44:55",
+                    "id": 29,
+                    "segment": 1,
+                    "band": 1,
+                    "left": {
+                        "ap": "50:ff:20:00:00:14",
+                        "band": 0
+                    }
+                },
+                "30": {
+                    "timestamp": "Apr 02 00:18:12",
+                    "mac": "12:34:56:78:90:ab",
+                    "id": 30,
+                    "segment": 0,
+                    "band": 1,
+                    "ap": "50:ff:20:00:01:01"
+                },
+                "31": {
+                    "timestamp": "Apr 04 01:28:20",
+                    "mac": "77:77:77:77:77:77",
+                    "id": 31,
+                    "segment": 0,
+                    "band": 1,
+                    "ap": "50:ff:20:00:01:01",
+                    "left": {
+                        "ap": "50:ff:20:00:00:14",
+                        "band": 1
+                    }
+                },
+                "32": {
+                    "timestamp": "Apr 06 14:08:56",
+                    "mac": "77:77:77:77:77:77",
+                    "id": 32,
+                    "segment": 0,
+                    "band": 1,
+                    "ap": "50:ff:20:12:34:56"
+                },
+                "33": {
+                    "timestamp": "Apr 13 03:32:31",
+                    "mac": "aa:dd:cc:ee:44:55",
+                    "id": 33,
+                    "segment": 0,
+                    "band": 1,
+                    "ap": "50:ff:20:12:34:56",
+                    "left": {
+                        "ap": "50:ff:20:12:34:56",
+                        "band": 0
+                    },
+                    "roam": "ft"
+                },
+                "34": {
+                    "timestamp": "Apr 13 20:56:39",
+                    "mac": "ec:d0:9f:11:30:a9",
+                    "id": 34,
+                    "segment": 1,
+                    "band": 0,
+                    "left": {
+                        "ap": "50:ff:20:00:01:01",
+                        "band": 0
+                    }
+                },
+                "35": {
+                    "timestamp": "Apr 16 10:02:53",
+                    "mac": "aa:bb:cc:dd:ee:ff",
+                    "id": 35,
+                    "segment": 1,
+                    "band": 1,
+                    "left": {
+                        "ap": "50:ff:20:aa:aa:aa",
+                        "band": 1
+                    }
+                },
+                "36": {
+                    "timestamp": "Apr 22 13:26:21",
+                    "mac": "44:55:11:22:33:66",
+                    "id": 36,
+                    "segment": 1,
+                    "band": 0,
+                    "ap": "50:ff:20:12:34:56",
+                    "left": {
+                        "ap": "50:ff:20:aa:aa:aa",
+                        "band": 1
+                    }
+                },
+                "37": {
+                    "timestamp": "Apr 26 04:56:06",
+                    "mac": "34:12:1a:88:16:09",
+                    "id": 37,
+                    "segment": 0,
+                    "band": 1,
+                    "ap": "50:ff:20:00:00:14"
+                },
+                "38": {
+                    "timestamp": "Apr 26 10:32:17",
+                    "mac": "77:77:77:77:77:77",
+                    "id": 38,
+                    "segment": 1,
+                    "band": 1,
+                    "ap": "50:ff:20:00:01:01",
+                    "left": {
+                        "ap": "50:ff:20:00:01:01",
+                        "band": 0
+                    },
+                    "roam": "pmk"
+                },
+                "39": {
+                    "timestamp": "May 02 19:50:43",
+                    "mac": "aa:bb:cc:dd:ee:ff",
+                    "id": 39,
+                    "segment": 0,
+                    "band": 1,
+                    "ap": "50:ff:20:00:00:14",
+                    "left": {
+                        "ap": "50:ff:20:00:00:14",
+                        "band": 0
+                    },
+                    "roam": "ft"
+                },
+                "40": {
+                    "timestamp": "May 03 11:51:26",
+                    "mac": "aa:bb:cc:dd:ee:ff",
+                    "id": 40,
+                    "segment": 1,
+                    "band": 0,
+                    "ap": "50:ff:20:12:34:56",
+                    "left": {
+                        "ap": "50:ff:20:00:00:14",
+                        "band": 0
+                    },
+                    "roam": "pmk"
+                },
+                "41": {
+                    "timestamp": "May 04 15:58:08",
+                    "mac": "ec:d0:9f:11:30:a9",
+                    "id": 41,
+                    "segment": 1,
+                    "band": 1,
+                    "ap": "50:ff:20:aa:aa:aa",
+                    "left": {
+                        "ap": "50:ff:20:00:01:01",
+                        "band": 1
+                    },
+                    "roam": "pmk"
+                },
+                "42": {
+                    "timestamp": "May 10 09:00:54",
+                    "mac": "11:11:11:11:11:11",
+                    "id": 42,
+                    "segment": 1,
+                    "band": 1,
+                    "ap": "50:ff:20:aa:aa:aa"
+                },
+                "43": {
+                    "timestamp": "May 12 13:31:34",
+                    "mac": "12:34:56:78:90:ab",
+                    "id": 43,
+                    "segment": 0,
+                    "band": 1,
+                    "ap": "50:ff:20:00:00:14",
+                    "left": {
+                        "ap": "50:ff:20:aa:aa:aa",
+                        "band": 0
+                    },
+                    "roam": "pmk"
+                },
+                "44": {
+                    "timestamp": "May 16 22:55:26",
+                    "mac": "34:12:1a:88:16:09",
+                    "id": 44,
+                    "segment": 0,
+                    "band": 1,
+                    "left": {
+                        "ap": "50:ff:20:aa:aa:aa",
+                        "band": 1
+                    }
+                },
+                "45": {
+                    "timestamp": "May 22 21:58:40",
+                    "mac": "aa:dd:cc:ee:44:55",
+                    "id": 45,
+                    "segment": 1,
+                    "band": 0,
+                    "ap": "50:ff:20:00:00:14",
+                    "left": {
+                        "ap": "50:ff:20:00:01:01",
+                        "band": 1
+                    },
+                    "roam": "ft"
+                },
+                "46": {
+                    "timestamp": "May 23 15:45:43",
+                    "mac": "11:11:11:11:11:11",
+                    "id": 46,
+                    "segment": 0,
+                    "band": 1,
+                    "ap": "50:ff:20:00:00:14",
+                    "left": {
+                        "ap": "50:ff:20:00:00:14",
+                        "band": 0
+                    }
+                },
+                "47": {
+                    "timestamp": "Jun 08 11:40:51",
+                    "mac": "aa:bb:cc:dd:ee:ff",
+                    "id": 47,
+                    "segment": 1,
+                    "band": 1,
+                    "ap": "50:ff:20:00:01:01",
+                    "left": {
+                        "ap": "50:ff:20:00:01:01",
+                        "band": 1
+                    },
+                    "roam": "ft"
+                },
+                "48": {
+                    "timestamp": "Jun 08 20:50:57",
+                    "mac": "77:77:77:77:77:77",
+                    "id": 48,
+                    "segment": 1,
+                    "band": 0,
+                    "ap": "50:ff:20:00:01:01",
+                    "left": {
+                        "ap": "50:ff:20:aa:aa:aa",
+                        "band": 0
+                    }
+                },
+                "49": {
+                    "timestamp": "Jun 12 17:21:14",
+                    "mac": "ec:d0:9f:11:30:a9",
+                    "id": 49,
+                    "segment": 0,
+                    "band": 0,
+                    "ap": "50:ff:20:00:00:14"
+                },
+                "50": {
+                    "timestamp": "Jun 15 15:24:36",
+                    "mac": "aa:dd:cc:ee:44:55",
+                    "id": 50,
+                    "segment": 0,
+                    "band": 1,
+                    "ap": "50:ff:20:aa:aa:aa",
+                    "left": {
+                        "ap": "50:ff:20:00:00:14",
+                        "band": 1
+                    },
+                    "roam": "ft"
+                },
+                "51": {
+                    "timestamp": "Jun 23 09:49:43",
+                    "mac": "af:90:aa:1b:e5:f7",
+                    "id": 51,
+                    "segment": 0,
+                    "band": 1,
+                    "ap": "50:ff:20:12:34:56"
+                },
+                "52": {
+                    "timestamp": "Jun 28 11:43:54",
+                    "mac": "44:55:11:22:33:66",
+                    "id": 52,
+                    "segment": 1,
+                    "band": 1,
+                    "ap": "50:ff:20:aa:aa:aa",
+                    "left": {
+                        "ap": "50:ff:20:aa:aa:aa",
+                        "band": 1
+                    }
+                },
+                "53": {
+                    "timestamp": "Jun 29 23:07:20",
+                    "mac": "df:09:9c:a4:78:32",
+                    "id": 53,
+                    "segment": 1,
+                    "band": 1,
+                    "ap": "50:ff:20:00:01:01",
+                    "left": {
+                        "ap": "50:ff:20:aa:aa:aa",
+                        "band": 0
+                    },
+                    "roam": "ft"
+                },
+                "54": {
+                    "timestamp": "Jul 02 21:58:06",
+                    "mac": "11:11:11:11:11:11",
+                    "id": 54,
+                    "segment": 1,
+                    "band": 1,
+                    "ap": "50:ff:20:00:00:14",
+                    "left": {
+                        "ap": "50:ff:20:aa:aa:aa",
+                        "band": 0
+                    }
+                },
+                "55": {
+                    "timestamp": "Jul 03 21:43:25",
+                    "mac": "df:09:9c:a4:78:32",
+                    "id": 55,
+                    "segment": 0,
+                    "band": 1,
+                    "ap": "50:ff:20:00:01:01",
+                    "left": {
+                        "ap": "50:ff:20:00:00:14",
+                        "band": 1
+                    },
+                    "roam": "pmk"
+                },
+                "56": {
+                    "timestamp": "Jul 11 02:55:43",
+                    "mac": "ec:d0:9f:11:30:a9",
+                    "id": 56,
+                    "segment": 0,
+                    "band": 0,
+                    "ap": "50:ff:20:00:01:01",
+                    "left": {
+                        "ap": "50:ff:20:12:34:56",
+                        "band": 1
+                    },
+                    "roam": "ft"
+                },
+                "57": {
+                    "timestamp": "Jul 16 05:07:51",
+                    "mac": "77:77:77:77:77:77",
+                    "id": 57,
+                    "segment": 1,
+                    "band": 1,
+                    "ap": "50:ff:20:aa:aa:aa",
+                    "left": {
+                        "ap": "50:ff:20:00:01:01",
+                        "band": 1
+                    }
+                },
+                "58": {
+                    "timestamp": "Jul 16 11:03:00",
+                    "mac": "af:90:aa:1b:e5:f7",
+                    "id": 58,
+                    "segment": 1,
+                    "band": 0,
+                    "ap": "50:ff:20:aa:aa:aa",
+                    "left": {
+                        "ap": "50:ff:20:00:01:01",
+                        "band": 1
+                    }
+                },
+                "59": {
+                    "timestamp": "Jul 16 21:48:27",
+                    "mac": "aa:dd:cc:ee:44:55",
+                    "id": 59,
+                    "segment": 0,
+                    "band": 1,
+                    "ap": "50:ff:20:00:01:01",
+                    "left": {
+                        "ap": "50:ff:20:12:34:56",
+                        "band": 0
+                    },
+                    "roam": "pmk"
+                },
+                "60": {
+                    "timestamp": "Jul 19 03:50:13",
+                    "mac": "34:12:1a:88:16:09",
+                    "id": 60,
+                    "segment": 1,
+                    "band": 1,
+                    "ap": "50:ff:20:00:01:01"
+                },
+                "61": {
+                    "timestamp": "Jul 19 12:17:36",
+                    "mac": "12:34:56:78:90:ab",
+                    "id": 61,
+                    "segment": 0,
+                    "band": 0,
+                    "ap": "50:ff:20:aa:aa:aa",
+                    "left": {
+                        "ap": "50:ff:20:aa:aa:aa",
+                        "band": 0
+                    }
+                },
+                "62": {
+                    "timestamp": "Jul 30 04:20:54",
+                    "mac": "44:55:11:22:33:66",
+                    "id": 62,
+                    "segment": 1,
+                    "band": 1,
+                    "ap": "50:ff:20:12:34:56",
+                    "left": {
+                        "ap": "50:ff:20:12:34:56",
+                        "band": 1
+                    }
+                },
+                "63": {
+                    "timestamp": "Aug 17 09:12:09",
+                    "mac": "aa:bb:cc:dd:ee:ff",
+                    "id": 63,
+                    "segment": 1,
+                    "band": 0,
+                    "ap": "50:ff:20:aa:aa:aa"
+                },
+                "64": {
+                    "timestamp": "Aug 21 05:12:03",
+                    "mac": "df:09:9c:a4:78:32",
+                    "id": 64,
+                    "segment": 1,
+                    "band": 0,
+                    "ap": "50:ff:20:00:00:14"
+                },
+                "65": {
+                    "timestamp": "Aug 22 12:36:13",
+                    "mac": "77:77:77:77:77:77",
+                    "id": 65,
+                    "segment": 1,
+                    "band": 1,
+                    "ap": "50:ff:20:00:00:14",
+                    "left": {
+                        "ap": "50:ff:20:aa:aa:aa",
+                        "band": 0
+                    }
+                },
+                "66": {
+                    "timestamp": "Aug 31 15:26:14",
+                    "mac": "aa:bb:cc:dd:ee:ff",
+                    "id": 66,
+                    "segment": 1,
+                    "band": 1,
+                    "ap": "50:ff:20:00:00:14",
+                    "left": {
+                        "ap": "50:ff:20:12:34:56",
+                        "band": 1
+                    },
+                    "roam": "pmk"
+                },
+                "67": {
+                    "timestamp": "Sep 03 21:01:56",
+                    "mac": "34:12:1a:88:16:09",
+                    "id": 67,
+                    "segment": 1,
+                    "band": 0,
+                    "left": {
+                        "ap": "50:ff:20:12:34:56",
+                        "band": 0
+                    }
+                },
+                "68": {
+                    "timestamp": "Sep 06 01:39:47",
+                    "mac": "34:12:1a:88:16:09",
+                    "id": 68,
+                    "segment": 1,
+                    "band": 1,
+                    "left": {
+                        "ap": "50:ff:20:12:34:56",
+                        "band": 0
+                    }
+                },
+                "69": {
+                    "timestamp": "Sep 06 14:05:08",
+                    "mac": "11:11:11:11:11:11",
+                    "id": 69,
+                    "segment": 1,
+                    "band": 0,
+                    "ap": "50:ff:20:aa:aa:aa",
+                    "left": {
+                        "ap": "50:ff:20:00:00:14",
+                        "band": 0
+                    }
+                },
+                "70": {
+                    "timestamp": "Sep 10 18:12:23",
+                    "mac": "df:09:9c:a4:78:32",
+                    "id": 70,
+                    "segment": 0,
+                    "band": 0,
+                    "ap": "50:ff:20:12:34:56",
+                    "left": {
+                        "ap": "50:ff:20:00:00:14",
+                        "band": 1
+                    },
+                    "roam": "pmk"
+                },
+                "71": {
+                    "timestamp": "Sep 20 04:32:15",
+                    "mac": "12:34:56:78:90:ab",
+                    "id": 71,
+                    "segment": 1,
+                    "band": 0,
+                    "ap": "50:ff:20:00:01:01"
+                },
+                "72": {
+                    "timestamp": "Sep 24 14:56:04",
+                    "mac": "77:77:77:77:77:77",
+                    "id": 72,
+                    "segment": 1,
+                    "band": 0,
+                    "ap": "50:ff:20:aa:aa:aa",
+                    "left": {
+                        "ap": "50:ff:20:00:00:14",
+                        "band": 1
+                    },
+                    "roam": "pmk"
+                },
+                "73": {
+                    "timestamp": "Sep 27 06:30:13",
+                    "mac": "df:09:9c:a4:78:32",
+                    "id": 73,
+                    "segment": 1,
+                    "band": 1,
+                    "ap": "50:ff:20:00:00:14",
+                    "left": {
+                        "ap": "50:ff:20:00:01:01",
+                        "band": 0
+                    }
+                },
+                "74": {
+                    "timestamp": "Sep 30 19:24:33",
+                    "mac": "77:77:77:77:77:77",
+                    "id": 74,
+                    "segment": 0,
+                    "band": 0,
+                    "ap": "50:ff:20:00:00:14",
+                    "left": {
+                        "ap": "50:ff:20:00:00:14",
+                        "band": 0
+                    },
+                    "roam": "ft"
+                },
+                "75": {
+                    "timestamp": "Oct 03 00:01:37",
+                    "mac": "34:12:1a:88:16:09",
+                    "id": 75,
+                    "segment": 1,
+                    "band": 1,
+                    "ap": "50:ff:20:12:34:56",
+                    "left": {
+                        "ap": "50:ff:20:12:34:56",
+                        "band": 1
+                    }
+                },
+                "76": {
+                    "timestamp": "Oct 04 20:40:45",
+                    "mac": "77:77:77:77:77:77",
+                    "id": 76,
+                    "segment": 0,
+                    "band": 0,
+                    "left": {
+                        "ap": "50:ff:20:00:01:01",
+                        "band": 1
+                    }
+                },
+                "77": {
+                    "timestamp": "Oct 21 07:15:19",
+                    "mac": "34:12:1a:88:16:09",
+                    "id": 77,
+                    "segment": 0,
+                    "band": 1,
+                    "ap": "50:ff:20:aa:aa:aa",
+                    "left": {
+                        "ap": "50:ff:20:aa:aa:aa",
+                        "band": 1
+                    },
+                    "roam": "pmk"
+                },
+                "78": {
+                    "timestamp": "Oct 22 15:27:27",
+                    "mac": "aa:dd:cc:ee:44:55",
+                    "id": 78,
+                    "segment": 0,
+                    "band": 0,
+                    "ap": "50:ff:20:aa:aa:aa",
+                    "left": {
+                        "ap": "50:ff:20:12:34:56",
+                        "band": 1
+                    },
+                    "roam": "pmk"
+                },
+                "79": {
+                    "timestamp": "Oct 31 23:32:55",
+                    "mac": "aa:bb:cc:dd:ee:ff",
+                    "id": 79,
+                    "segment": 1,
+                    "band": 0,
+                    "ap": "50:ff:20:12:34:56",
+                    "left": {
+                        "ap": "50:ff:20:00:01:01",
+                        "band": 1
+                    }
+                },
+                "80": {
+                    "timestamp": "Nov 02 10:36:10",
+                    "mac": "77:77:77:77:77:77",
+                    "id": 80,
+                    "segment": 0,
+                    "band": 1,
+                    "ap": "50:ff:20:00:01:01",
+                    "left": {
+                        "ap": "50:ff:20:00:01:01",
+                        "band": 0
+                    },
+                    "roam": "ft"
+                },
+                "81": {
+                    "timestamp": "Nov 03 10:33:03",
+                    "mac": "aa:bb:cc:dd:ee:ff",
+                    "id": 81,
+                    "segment": 0,
+                    "band": 1,
+                    "ap": "50:ff:20:aa:aa:aa",
+                    "left": {
+                        "ap": "50:ff:20:00:01:01",
+                        "band": 0
+                    },
+                    "roam": "ft"
+                },
+                "82": {
+                    "timestamp": "Nov 06 22:36:52",
+                    "mac": "ec:d0:9f:11:30:a9",
+                    "id": 82,
+                    "segment": 1,
+                    "band": 1,
+                    "ap": "50:ff:20:00:00:14",
+                    "left": {
+                        "ap": "50:ff:20:aa:aa:aa",
+                        "band": 1
+                    },
+                    "roam": "ft"
+                },
+                "83": {
+                    "timestamp": "Nov 10 01:15:18",
+                    "mac": "ec:d0:9f:11:30:a9",
+                    "id": 83,
+                    "segment": 1,
+                    "band": 0,
+                    "ap": "50:ff:20:00:00:14",
+                    "left": {
+                        "ap": "50:ff:20:00:00:14",
+                        "band": 1
+                    },
+                    "roam": "ft"
+                },
+                "84": {
+                    "timestamp": "Nov 10 19:20:22",
+                    "mac": "df:09:9c:a4:78:32",
+                    "id": 84,
+                    "segment": 1,
+                    "band": 1,
+                    "ap": "50:ff:20:12:34:56",
+                    "left": {
+                        "ap": "50:ff:20:aa:aa:aa",
+                        "band": 0
+                    }
+                },
+                "85": {
+                    "timestamp": "Nov 12 16:52:02",
+                    "mac": "44:55:11:22:33:66",
+                    "id": 85,
+                    "segment": 0,
+                    "band": 1,
+                    "ap": "50:ff:20:aa:aa:aa"
+                },
+                "86": {
+                    "timestamp": "Nov 15 03:53:17",
+                    "mac": "34:12:1a:88:16:09",
+                    "id": 86,
+                    "segment": 1,
+                    "band": 0,
+                    "ap": "50:ff:20:00:00:14",
+                    "left": {
+                        "ap": "50:ff:20:00:01:01",
+                        "band": 1
+                    },
+                    "roam": "pmk"
+                },
+                "87": {
+                    "timestamp": "Nov 16 13:57:18",
+                    "mac": "af:90:aa:1b:e5:f7",
+                    "id": 87,
+                    "segment": 1,
+                    "band": 1,
+                    "left": {
+                        "ap": "50:ff:20:00:00:14",
+                        "band": 0
+                    }
+                },
+                "88": {
+                    "timestamp": "Nov 21 12:43:59",
+                    "mac": "11:11:11:11:11:11",
+                    "id": 88,
+                    "segment": 1,
+                    "band": 0,
+                    "ap": "50:ff:20:00:01:01",
+                    "left": {
+                        "ap": "50:ff:20:12:34:56",
+                        "band": 1
+                    },
+                    "roam": "pmk"
+                },
+                "89": {
+                    "timestamp": "Nov 22 14:57:18",
+                    "mac": "ec:d0:9f:11:30:a9",
+                    "id": 89,
+                    "segment": 0,
+                    "band": 0,
+                    "ap": "50:ff:20:00:00:14",
+                    "left": {
+                        "ap": "50:ff:20:00:01:01",
+                        "band": 1
+                    },
+                    "roam": "pmk"
+                },
+                "90": {
+                    "timestamp": "Nov 22 19:02:36",
+                    "mac": "aa:dd:cc:ee:44:55",
+                    "id": 90,
+                    "segment": 0,
+                    "band": 0,
+                    "ap": "50:ff:20:00:00:14",
+                    "left": {
+                        "ap": "50:ff:20:00:00:14",
+                        "band": 1
+                    }
+                },
+                "91": {
+                    "timestamp": "Nov 23 06:13:50",
+                    "mac": "af:90:aa:1b:e5:f7",
+                    "id": 91,
+                    "segment": 0,
+                    "band": 0,
+                    "left": {
+                        "ap": "50:ff:20:aa:aa:aa",
+                        "band": 1
+                    }
+                },
+                "92": {
+                    "timestamp": "Nov 25 04:26:23",
+                    "mac": "77:77:77:77:77:77",
+                    "id": 92,
+                    "segment": 0,
+                    "band": 1,
+                    "ap": "50:ff:20:00:00:14"
+                },
+                "93": {
+                    "timestamp": "Dec 08 02:07:51",
+                    "mac": "34:12:1a:88:16:09",
+                    "id": 93,
+                    "segment": 0,
+                    "band": 1,
+                    "ap": "50:ff:20:12:34:56",
+                    "left": {
+                        "ap": "50:ff:20:00:01:01",
+                        "band": 0
+                    },
+                    "roam": "ft"
+                },
+                "94": {
+                    "timestamp": "Dec 14 11:19:19",
+                    "mac": "34:12:1a:88:16:09",
+                    "id": 94,
+                    "segment": 0,
+                    "band": 0,
+                    "ap": "50:ff:20:00:01:01",
+                    "left": {
+                        "ap": "50:ff:20:12:34:56",
+                        "band": 1
+                    },
+                    "roam": "ft"
+                },
+                "95": {
+                    "timestamp": "Dec 16 17:28:40",
+                    "mac": "11:11:11:11:11:11",
+                    "id": 95,
+                    "segment": 0,
+                    "band": 0,
+                    "ap": "50:ff:20:aa:aa:aa",
+                    "left": {
+                        "ap": "50:ff:20:00:01:01",
+                        "band": 1
+                    },
+                    "roam": "pmk"
+                },
+                "96": {
+                    "timestamp": "Dec 19 02:25:43",
+                    "mac": "aa:dd:cc:ee:44:55",
+                    "id": 96,
+                    "segment": 1,
+                    "band": 0,
+                    "ap": "50:ff:20:12:34:56"
+                },
+                "97": {
+                    "timestamp": "Dec 19 11:05:48",
+                    "mac": "aa:dd:cc:ee:44:55",
+                    "id": 97,
+                    "segment": 1,
+                    "band": 0,
+                    "ap": "50:ff:20:00:00:14"
+                },
+                "98": {
+                    "timestamp": "Dec 20 11:14:50",
+                    "mac": "aa:bb:cc:dd:ee:ff",
+                    "id": 98,
+                    "segment": 0,
+                    "band": 0,
+                    "ap": "50:ff:20:aa:aa:aa",
+                    "left": {
+                        "ap": "50:ff:20:00:00:14",
+                        "band": 1
+                    },
+                    "roam": "pmk"
+                },
+                "99": {
+                    "timestamp": "Dec 21 19:50:24",
+                    "mac": "ec:d0:9f:11:30:a9",
+                    "id": 99,
+                    "segment": 0,
+                    "band": 1,
+                    "ap": "50:ff:20:aa:aa:aa",
+                    "left": {
+                        "ap": "50:ff:20:aa:aa:aa",
+                        "band": 1
+                    },
+                    "roam": "pmk"
+                }
+            },
+            "continued": true
+        }
+    }
+}
