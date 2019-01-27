@@ -1,18 +1,10 @@
-//var HtmlReporter = require('protractor-beautiful-reporter');
 let SpecReporter = require('jasmine-spec-reporter').SpecReporter;
 
 exports.config = {
-//  seleniumAddress: 'http://localhost:4444/wd/hub',
   getPageTimeout: 30000,
   allScriptsTimeout: 30000,
   framework: 'jasmine2',
   jasmineNodeOpts: { defaultTimeoutInterval: 120000 },
-  /*onPrepare: function() {
-     // Add a screenshot reporter and store screenshots to `/tmp/screenshots`:
-     jasmine.getEnv().addReporter(new HtmlReporter({
-        baseDirectory: './reports/screenshots'
-     }).getJasmine2Reporter());
-  },*/
   rootElement: 'keenetic',
   capabilities: {
     browserName: 'chrome',
@@ -35,8 +27,7 @@ exports.config = {
         protractorConfig: "conf.js",
     };
 },
-mocks: {
-	default: ['wifi_members.json','wifi_log.json'], // default value: []
+mocks: { 
 	dir: '../../mock_generator/mocks' // default value: 'mocks'
 },
   /*onPrepare: function(){
