@@ -42,6 +42,33 @@ describe('Wi-fi system log testing: ', () => {
         });
     });
 
+    describe('filtering by device', () => {
+        const input = $('input[name="logFilter_client"]'),
+            option = $$('ndm-input-autocomplete[name="logFilter_client"] li').get(0),
+            devices = element.all(by.css('.table__col-1 div'));
+
+        it('selecting device ', () => {
+            input.clear().sendKeys('Apple');
+            browser.wait(until.visibilityOf(option), 10000)
+                .then(() => {
+                    option.click();
+                });
+            //browser.wait(until.visibilityOf(option.get(0)), 10000, 'no data found');
+        });
+
+        it('checking filtered data', () => {
+            devices.each((el) => {
+                el.getText()
+                    .then((text) => {
+                        if(text !== 'Device'){
+                            expect(text.split('\n')[0]).toBe('Apple II computer');
+                        }
+                    });
+            });
+        });
+
+    });
+
     describe('Filtering by event: ', () => {
         const input = $('input[name="logFilter_eventType"]'),
             optionC = $('li[data-ndm-option-value="connected"]'),
