@@ -1,8 +1,20 @@
 const rgbHex = require('rgb-hex');
 
 describe('Wi-fi system log testing: ', () => {
-    var until = protractor.ExpectedConditions;
-    var mock = require('protractor-http-mock');
+    let until = protractor.ExpectedConditions;
+    let mock = require('protractor-http-mock');
+
+    const events = $$('span[class="mws-log-event__type"]');
+
+    let selectOption = (input, el) => {
+        input.clear().click();
+        browser.wait(until.visibilityOf(el), 10000)
+            .then(() => {
+                el.click();
+            });
+        browser.wait(until.visibilityOf(events.get(0)), 10000, 'no data found');
+    }
+
 
     mock(['wifi_members.json','wifi_log.json','wifi_hotspot.json']);
 
@@ -45,15 +57,18 @@ describe('Wi-fi system log testing: ', () => {
     describe('filtering by device', () => {
         const input = $('input[name="logFilter_client"]'),
             option = $$('ndm-input-autocomplete[name="logFilter_client"] li').get(0),
-            devices = element.all(by.css('.table__col-1 div'));
+            devices = $$('.table__col-1 div'),
+            filter = $$('.ndm-table thead th.sortable').get(1),
+            cancel = $('ndm-button[icon="cancel"] button')
+        let devArray = [],
+            sorted = [];
 
-        it('selecting device ', () => {
+        it('selecting device "Apple II Computer" ', () => {
             input.clear().sendKeys('Apple');
             browser.wait(until.visibilityOf(option), 10000)
                 .then(() => {
                     option.click();
                 });
-            //browser.wait(until.visibilityOf(option.get(0)), 10000, 'no data found');
         });
 
         it('checking filtered data', () => {
@@ -64,8 +79,72 @@ describe('Wi-fi system log testing: ', () => {
                             expect(text.split('\n')[0]).toBe('Apple II computer');
                         }
                     });
+            })
+            .then(() => {input.clear()});
+        });
+
+        it('selecting device "iPhone XR"', () => {
+            input.clear().sendKeys('iPHONE');
+            browser.wait(until.visibilityOf(option), 10000)
+                .then(() => {
+                    option.click();
+                });
+        });
+
+        it('checking filtered data', () => {
+            devices.each((el) => {
+                el.getText()
+                    .then((text) => {
+                        if(text !== 'Device'){
+                            expect(text.split('\n')[0]).toBe('iPhone-XR');
+                        }
+                    });
+            })
+            .then(() => {cancel.click();});
+        });
+
+        it('getting device data', () => {
+            devices.each((el) => {
+                el.getText()
+                    .then((text) => {
+                        if(text !== 'Device'){
+                            devArray.push(text);
+                        }
+                    });
             });
         });
+
+        it('sorting by ASC: ', () => {
+            filter
+                .click()
+                .then(() => {
+                    sorted = devArray.sort((a, b) => {
+                        if (a > b) return -1;
+                        else if (a < b) return 1;
+                        return 0;
+                    });
+                }).then(() => {
+                    devices.each((el) => {
+                        el.getText()
+                            .then((text) => {
+                                if(text !== 'Device'){
+                                    devArray.push(text);
+                                }
+                            });
+                    });
+                });
+        });
+
+        it('array sort', () => {
+        for (c = 0; c < devArray.length; c++){
+            expect(devArray[c]).toBe(sorted[c]);
+            //console.log('compare: '  + devArray[c] + ' to: ' + sorted[c] + '\n')
+        }
+            //console.log(sorted);
+            //browser.sleep(120000);
+        });
+
+
 
     });
 
@@ -79,14 +158,7 @@ describe('Wi-fi system log testing: ', () => {
             events = $$('span[class="mws-log-event__type"]'),
             trans = ['Transition', 'Fast transition', 'PMK cache transition'];
 
-        it('selecting option: Connected', () => {
-            input.click();
-            browser.wait(until.visibilityOf(optionC), 10000)
-                .then(() => {
-                    optionC.click();
-                });
-            browser.wait(until.visibilityOf(events.get(0)), 10000, 'no data found');
-        });
+        it('selecting option: Connected', () => {selectOption(input, optionC);});
 
         it('checking filtered data', () => {
             events.each((el) => {
@@ -94,14 +166,7 @@ describe('Wi-fi system log testing: ', () => {
             });
         });
 
-        it('selecting option: Left', () => {
-            input.clear().click();
-            browser.wait(until.visibilityOf(optionL), 10000)
-                .then(() => {
-                    optionL.click();
-                });
-            browser.wait(until.visibilityOf(events.get(0)), 10000, 'no data found');
-        });
+        it('selecting option: Left', () => {selectOption(input, optionL);});
 
         it('checking filtered data', () => {
             events.each((el) => {
@@ -109,14 +174,7 @@ describe('Wi-fi system log testing: ', () => {
             });
         });
 
-        it('selecting option: PMK', () => {
-            input.clear().click();
-            browser.wait(until.visibilityOf(optionP), 10000)
-                .then(() => {
-                    optionP.click();
-                });
-            browser.wait(until.visibilityOf(events.get(0)), 10000, 'no data found');
-        });
+        it('selecting option: PMK', () => {selectOption(input, optionP);});
 
         it('checking filtered data', () => {
             events.each((el) => {
@@ -124,14 +182,7 @@ describe('Wi-fi system log testing: ', () => {
             });
         });
 
-        it('selecting option: Fast transition', () => {
-            input.clear().click();
-            browser.wait(until.visibilityOf(optionF), 10000)
-                .then(() => {
-                    optionF.click();
-                });
-            browser.wait(until.visibilityOf(events.get(0)), 10000, 'no data found');
-        });
+        it('selecting option: Fast transition', () => {selectOption(input, optionF);});
 
         it('checking filtered data', () => {
             events.each((el) => {
@@ -139,14 +190,7 @@ describe('Wi-fi system log testing: ', () => {
             });
         });
 
-        it('selecting option: Transition', () => {
-            input.clear().click();
-            browser.wait(until.visibilityOf(optionT), 10000)
-                .then(() => {
-                    optionT.click();
-                });
-            browser.wait(until.visibilityOf(events.get(0)), 10000, 'no data found');
-        });
+        it('selecting option: Transition', () => {selectOption(input, optionT);});
 
         it('checking filtered data', () => {
             events.each((el) => {
@@ -159,6 +203,7 @@ describe('Wi-fi system log testing: ', () => {
     });
 
     afterEach(() => {
+        //browser.pause(50000);
         mock.teardown();
     });
 
