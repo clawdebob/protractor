@@ -4,7 +4,11 @@ describe('Wi-fi system log testing: ', () => {
     let until = protractor.ExpectedConditions;
     let mock = require('protractor-http-mock');
 
-    const events = $$('span[class="mws-log-event__type"]');
+    const events = $$('span[class="mws-log-event__type"]'),
+            cancel = $('ndm-button[icon="cancel"] button');
+
+    mock(['wifi_log.json','wifi_hotspot.json']);
+    //['wifi_members.json',
 
     let selectOption = (input, el) => {
         input.clear().click();
@@ -15,8 +19,15 @@ describe('Wi-fi system log testing: ', () => {
         browser.wait(until.visibilityOf(events.get(0)), 10000, 'no data found');
     }
 
+    let selectOptionByText = (input_name, text) => {
+        const el = $$('ndm-input-autocomplete[name="' + input_name + '"] li').get(0);
+        $('input[name="' + input_name + '"]').clear().sendKeys(text);
+        browser.wait(until.visibilityOf(el), 10000)
+            .then(() => {
+                el.click();
+            });
+    }
 
-    mock(['wifi_members.json','wifi_log.json','wifi_hotspot.json']);
 
     beforeAll(() => {
         browser.get('/controlPanel/wifiSystem');
@@ -54,21 +65,114 @@ describe('Wi-fi system log testing: ', () => {
         });
     });
 
-    describe('filtering by device', () => {
-        const input = $('input[name="logFilter_client"]'),
-            option = $$('ndm-input-autocomplete[name="logFilter_client"] li').get(0),
+    describe('Sorting by date', () => {
+        const dates = $$('.table__col-0 div'),
+            filter = $$('.ndm-table thead th.sortable').get(0);
+
+        let devArray = [],
+            sorted = [];
+
+        it('getting dates list', () => {
+            let date = null,
+                time = null;
+
+            dates.each((el) => {
+                el.getText()
+                    .then((text) => {
+                        if(text !== 'Timestamp' && text !== ''){
+                            date = text.split('\n')[1].split('.');
+                            time = text.split('\n')[0];
+                            sorted.push(date[1] + '/'+ date[0]+ '/' + date[2] + ' ' + time);
+                        }
+                    });
+            })
+            .then(() => {
+                expect(sorted.length).toBe(100);
+            })
+        });
+
+        it('sorting by DESC: ', () => {
+            let date = null,
+                time = null;
+            filter
+                .click()
+                .then(() => {
+                    sorted = sorted.sort(function(a, b){
+                            return new Date(a) - new Date(b);
+                    });
+                })
+                .then(() => {
+                    dates
+                        .each((el) => {
+                            el.getText()
+                                .then((text) => {
+                                    if(text !== 'Timestamp' && text !== '') {
+                                        date = text.split('\n')[1].split('.');
+                                        time = text.split('\n')[0];
+                                        devArray.push(date[1] + '/'+ date[0]+ '/' + date[2] + ' ' + time);
+                                    }
+                                });
+                        });
+                })
+                .then(() => {
+                    expect(devArray.length).toBe(100);
+                });
+        });
+
+        it('checking sorted data', () => {
+            for (c = 0; c < devArray.length; c++){
+                expect(devArray[c]).toBe(sorted[c]);
+            }
+        });
+
+        it('sorting by ASC: ', () => {
+            let date = null,
+                time = null;
+
+            filter
+                .click()
+                .then(() => {
+                    sorted = sorted.sort(function(a, b){
+                            return new Date(b) - new Date(a);
+                    });
+                    devArray = [];
+                })
+                .then(() => {
+                    dates
+                        .each((el) => {
+                            el.getText()
+                                .then((text) => {
+                                    if(text !== 'Timestamp' && text !== '') {
+                                        date = text.split('\n')[1].split('.');
+                                        time = text.split('\n')[0];
+                                        devArray.push(date[1] + '/'+ date[0]+ '/' + date[2] + ' ' + time);
+                                    }
+                                });
+                        });
+                })
+                .then(() => {
+                    expect(devArray.length).toBe(100);
+                });
+        });
+
+        it('checking sorted data', () => {
+            for (c = 0; c < devArray.length; c++){
+                expect(devArray[c]).toBe(sorted[c]);
+            }
+        });
+    });
+
+
+    describe('Filtering by hosts device ', () => {
+        const input = $('input[name="logFilter_from"]'),
             devices = $$('.table__col-1 div'),
-            filter = $$('.ndm-table thead th.sortable').get(1),
-            cancel = $('ndm-button[icon="cancel"] button')
+            filter = $$('.ndm-table thead th.sortable').get(1);
+
         let devArray = [],
             sorted = [];
 
         it('selecting device "Apple II Computer" ', () => {
-            input.clear().sendKeys('Apple');
-            browser.wait(until.visibilityOf(option), 10000)
-                .then(() => {
-                    option.click();
-                });
+            selectOptionByText('logFilter_client', 'Apple');
         });
 
         it('checking filtered data', () => {
@@ -84,11 +188,7 @@ describe('Wi-fi system log testing: ', () => {
         });
 
         it('selecting device "iPhone XR"', () => {
-            input.clear().sendKeys('iPHONE');
-            browser.wait(until.visibilityOf(option), 10000)
-                .then(() => {
-                    option.click();
-                });
+            selectOptionByText('logFilter_client', 'Iphone');
         });
 
         it('checking filtered data', () => {
@@ -108,47 +208,124 @@ describe('Wi-fi system log testing: ', () => {
                 el.getText()
                     .then((text) => {
                         if(text !== 'Device'){
-                            devArray.push(text);
+                            sorted.push(text);
                         }
                     });
-            });
+            })
+            .then(() => {
+                expect(sorted.length).toBe(100);
+            //    browser.sleep(60000);
+            })
         });
 
-        it('sorting by ASC: ', () => {
+        it('sorting by DESC: ', () => {
             filter
                 .click()
                 .then(() => {
-                    sorted = devArray.sort((a, b) => {
+                    sorted = sorted.sort((a, b) => {
                         if (a > b) return -1;
                         else if (a < b) return 1;
                         return 0;
                     });
-                }).then(() => {
-                    devices.each((el) => {
-                        el.getText()
-                            .then((text) => {
-                                if(text !== 'Device'){
-                                    devArray.push(text);
-                                }
-                            });
-                    });
+                })
+                .then(() => {
+                    devices
+                        .each((el) => {
+                            el.getText()
+                                .then((text) => {
+                                    if(text !== 'Device') {
+                                        devArray.push(text);
+                                    }
+                                });
+                        });
+                })
+                .then(() => {
+                    expect(devArray.length).toBe(100);
                 });
         });
 
-        it('array sort', () => {
-        for (c = 0; c < devArray.length; c++){
-            expect(devArray[c]).toBe(sorted[c]);
-            //console.log('compare: '  + devArray[c] + ' to: ' + sorted[c] + '\n')
-        }
-            //console.log(sorted);
-            //browser.sleep(120000);
+        it('checking sorted data', () => {
+            for (c = 0; c < devArray.length; c++){
+                expect(devArray[c]).toBe(sorted[c]);
+                //console.log('compare: '  + devArray[c] + ' to: ' + sorted[c] + '\n')
+            }
         });
 
 
+        it('sorting by ASC', () => {
+            filter
+                .click()
+                .then(() => {
+                    devArray = [];
+                    sorted = sorted.sort((a, b) => {
+                        if (a < b) return -1;
+                        else if (a > b) return 1;
+                        return 0;
+                    });
+                })
+                .then(() => {
+                    devices
+                        .each((el) => {
+                            el.getText()
+                                .then((text) => {
+                                    if(text !== 'Device') {
+                                        devArray.push(text);
+                                    }
+                                });
+                        });
+                })
+                .then(() => {
+                    expect(devArray.length).toBe(100);
+                });
+        });
 
+        it('checking sorted data', () => {
+            for (c = 0; c < devArray.length; c++) {
+                expect(devArray[c]).toBe(sorted[c]);
+                //console.log('compare: '  + devArray[c] + ' to: ' + sorted[c] + '\n')
+            }
+        });
     });
 
-    describe('Filtering by event: ', () => {
+    /*describe('Filtering by "From" and "To" devices ', () => {
+        const devices = $$('.table__col-2 div'),
+            devicesTo = $$('.table__col-4 div');
+
+        it('selecting device "Keenetic Air" from "From" ', () => {
+            selectOptionByText('logFilter_from', 'Keenetic A');
+        });
+
+        it('checking filtered data', () => {
+            devices.each((el) => {
+                el.getText()
+                    .then((text) => {
+                        if(text !== 'From'){
+                            expect(text.split('\n')[0]).toBe('Keenetic Air');
+                        }
+                    });
+            })
+            .then(() => {cancel.click();});
+        });
+
+        it('selecting device "Keenetic Ultra" from "To": ', () => {
+            selectOptionByText('logFilter_to', 'Keenetic ULTRA');
+            //browser.sleep(50000);
+        });
+
+        it('checking filtered data', () => {
+            devicesTo.each((el) => {
+                el.getText()
+                    .then((text) => {
+                        if(text !== 'To'){
+                            expect(text.split('\n')[0]).toBe('Keenetic Ultra');
+                        }
+                    });
+            })
+            .then(() => {cancel.click();});
+        });
+    });*/
+
+    describe('Filtering by event ', () => {
         const input = $('input[name="logFilter_eventType"]'),
             optionC = $('li[data-ndm-option-value="connected"]'),
             optionL = $('li[data-ndm-option-value="left"]'),
@@ -190,7 +367,7 @@ describe('Wi-fi system log testing: ', () => {
             });
         });
 
-        it('selecting option: Transition', () => {selectOption(input, optionT);});
+        it('selecting option: Transition', () => { selectOption(input, optionT);});
 
         it('checking filtered data', () => {
             events.each((el) => {
@@ -198,43 +375,15 @@ describe('Wi-fi system log testing: ', () => {
                     .then((text) => {
                         expect(trans.indexOf(text)).not.toBe(-1);
                     });
-            });
+            }).then(() => {cancel.click()})
         });
     });
 
+
+
+
+
     afterEach(() => {
-        //browser.pause(50000);
         mock.teardown();
     });
-
-
-  /*it("testing filtration by device and by date, time",() => {
-    var dates = element.all(by.xpath('//tr[@item-idx]/td[1]/div'));
-    var devices = element.all(by.xpath('//tr[@item-idx]/td[2]/div'));
-  //  var dev_sort = element.(by.xpath(''));
-    var dlist=[];
-    var sorted=[];
-    var counter = 0;
-    var cntr = 0;
-    devices.each(function(el){
-      el.getText().then((text) =>{
-        dlist.push(text);
-      }).then(function(){
-        console.log(dlist[counter++]);
-      });
-    });
-    sorted = dlist.sort(function (a, b) {
-      if (a > b) return -1;
-      else if (a < b) return 1;
-      return 0;
-    });
-    devices.each(function(){
-      console.log(cntr+": "+sorted[cntr++]);
-    });
-    browser.sleep(2000);
-
-    //expect(devices.count().)
-  //  devices.click();
-  //  devices.count().then(function(count){console.log(count)});
-});*/
 });
