@@ -4,11 +4,30 @@ describe('Wi-fi system log testing: ', () => {
     let until = protractor.ExpectedConditions;
     let mock = require('protractor-http-mock');
 
+    const WAIT_TIMEOUT = 10000;
+
     const events = $$('span[class="mws-log-event__type"]'),
             cancel = $('ndm-button[icon="cancel"] button');
 
-    mock(['wifi_log.json','wifi_hotspot.json']);
-    //['wifi_members.json',
+    mock(['wifi_members.json', 'wifi_log.json', 'wifi_hotspot.json']);
+
+    //'wifi_members.json',
+
+    const waitUntilNgClassIsRemoved = (element, className, errorMessage = '') => {
+        return browser.wait(
+            () => {
+                return element
+                    .getAttribute('none')
+                    .then((result) => {
+                        return element
+                            .evaluate('vm.isDisabled')
+                            .then((classes) => {console.log(classes); return classes === false;});
+                    });
+            },
+            WAIT_TIMEOUT,
+            errorMessage
+        );
+    };
 
     let selectOption = (input, el) => {
         input.clear().click();
@@ -35,7 +54,8 @@ describe('Wi-fi system log testing: ', () => {
 
     it('selecting wi-fi system option', () => {
         const tab = $$('.tabs-list__item').get(1),
-            trs = $$('.ndm-table__row').get(0);
+            trs = $$('.ndm-table__row').get(0),
+            comp = $('ndm-tabs');
 
         browser.driver.wait(() => {
             browser.wait(until.visibilityOf(tab), 10000);
@@ -44,16 +64,20 @@ describe('Wi-fi system log testing: ', () => {
                 .perform();
 
             return tab;
-        }).then((el) => {
+        }).then(() => {
+            //waitUntilPageIsLoaded();
+            //waitUntilNgClassIsRemoved(tab, 'tabs-list__item--disabled');
             browser.wait(() => {
-                return el
+                return tab
                     .getCssValue('background-color')
                     .then((color) => rgbHex(color).slice(0, -2) === 'eff7ff');
             });
-        }).then(() => {
+        })
+        .then(() => {
             tab.click();
             browser.wait(until.visibilityOf(trs), 10000);
-        }).then(() => {
+        })
+        .then(() => {
             browser.actions()
                 .mouseMove(trs, {x: 5, y: 5})
                 .perform();
@@ -66,7 +90,7 @@ describe('Wi-fi system log testing: ', () => {
     });
 
     describe('Sorting by date', () => {
-        const dates = $$('.table__col-0 div'),
+        const dates = $$('tbody .table__col-0 div'),
             filter = $$('.ndm-table thead th.sortable').get(0);
 
         let devArray = [],
@@ -79,7 +103,7 @@ describe('Wi-fi system log testing: ', () => {
             dates.each((el) => {
                 el.getText()
                     .then((text) => {
-                        if(text !== 'Timestamp' && text !== ''){
+                        if(text !== ''){
                             date = text.split('\n')[1].split('.');
                             time = text.split('\n')[0];
                             sorted.push(date[1] + '/'+ date[0]+ '/' + date[2] + ' ' + time);
@@ -106,7 +130,7 @@ describe('Wi-fi system log testing: ', () => {
                         .each((el) => {
                             el.getText()
                                 .then((text) => {
-                                    if(text !== 'Timestamp' && text !== '') {
+                                    if(text !== '') {
                                         date = text.split('\n')[1].split('.');
                                         time = text.split('\n')[0];
                                         devArray.push(date[1] + '/'+ date[0]+ '/' + date[2] + ' ' + time);
@@ -142,7 +166,7 @@ describe('Wi-fi system log testing: ', () => {
                         .each((el) => {
                             el.getText()
                                 .then((text) => {
-                                    if(text !== 'Timestamp' && text !== '') {
+                                    if(text !== '') {
                                         date = text.split('\n')[1].split('.');
                                         time = text.split('\n')[0];
                                         devArray.push(date[1] + '/'+ date[0]+ '/' + date[2] + ' ' + time);
@@ -165,8 +189,9 @@ describe('Wi-fi system log testing: ', () => {
 
     describe('Filtering by hosts device ', () => {
         const input = $('input[name="logFilter_from"]'),
-            devices = $$('.table__col-1 div'),
+            devices = $$('tbody .table__col-1 div'),
             filter = $$('.ndm-table thead th.sortable').get(1);
+
 
         let devArray = [],
             sorted = [];
@@ -179,9 +204,7 @@ describe('Wi-fi system log testing: ', () => {
             devices.each((el) => {
                 el.getText()
                     .then((text) => {
-                        if(text !== 'Device'){
-                            expect(text.split('\n')[0]).toBe('Apple II computer');
-                        }
+                        expect(text.split('\n')[0]).toBe('Apple II computer');
                     });
             })
             .then(() => {input.clear()});
@@ -195,9 +218,7 @@ describe('Wi-fi system log testing: ', () => {
             devices.each((el) => {
                 el.getText()
                     .then((text) => {
-                        if(text !== 'Device'){
-                            expect(text.split('\n')[0]).toBe('iPhone-XR');
-                        }
+                        expect(text.split('\n')[0]).toBe('iPhone-XR');
                     });
             })
             .then(() => {cancel.click();});
@@ -207,14 +228,11 @@ describe('Wi-fi system log testing: ', () => {
             devices.each((el) => {
                 el.getText()
                     .then((text) => {
-                        if(text !== 'Device'){
-                            sorted.push(text);
-                        }
+                        sorted.push(text);
                     });
             })
             .then(() => {
                 expect(sorted.length).toBe(100);
-            //    browser.sleep(60000);
             })
         });
 
@@ -233,9 +251,7 @@ describe('Wi-fi system log testing: ', () => {
                         .each((el) => {
                             el.getText()
                                 .then((text) => {
-                                    if(text !== 'Device') {
-                                        devArray.push(text);
-                                    }
+                                    devArray.push(text);
                                 });
                         });
                 })
@@ -268,9 +284,7 @@ describe('Wi-fi system log testing: ', () => {
                         .each((el) => {
                             el.getText()
                                 .then((text) => {
-                                    if(text !== 'Device') {
-                                        devArray.push(text);
-                                    }
+                                    devArray.push(text);
                                 });
                         });
                 })
@@ -287,9 +301,9 @@ describe('Wi-fi system log testing: ', () => {
         });
     });
 
-    /*describe('Filtering by "From" and "To" devices ', () => {
-        const devices = $$('.table__col-2 div'),
-            devicesTo = $$('.table__col-4 div');
+    describe('Filtering by "From" and "To" devices ', () => {
+        const devices = $$('tbody .table__col-2 div'),
+            devicesTo = $$('tbody .table__col-4 div');
 
         it('selecting device "Keenetic Air" from "From" ', () => {
             selectOptionByText('logFilter_from', 'Keenetic A');
@@ -299,9 +313,7 @@ describe('Wi-fi system log testing: ', () => {
             devices.each((el) => {
                 el.getText()
                     .then((text) => {
-                        if(text !== 'From'){
-                            expect(text.split('\n')[0]).toBe('Keenetic Air');
-                        }
+                        expect(text.split('\n')[0]).toBe('Keenetic Air');
                     });
             })
             .then(() => {cancel.click();});
@@ -309,21 +321,18 @@ describe('Wi-fi system log testing: ', () => {
 
         it('selecting device "Keenetic Ultra" from "To": ', () => {
             selectOptionByText('logFilter_to', 'Keenetic ULTRA');
-            //browser.sleep(50000);
         });
 
         it('checking filtered data', () => {
             devicesTo.each((el) => {
                 el.getText()
                     .then((text) => {
-                        if(text !== 'To'){
-                            expect(text.split('\n')[0]).toBe('Keenetic Ultra');
-                        }
+                        expect(text.split('\n')[0]).toBe('Keenetic Ultra');
                     });
             })
             .then(() => {cancel.click();});
         });
-    });*/
+    });
 
     describe('Filtering by event ', () => {
         const input = $('input[name="logFilter_eventType"]'),
@@ -351,7 +360,7 @@ describe('Wi-fi system log testing: ', () => {
             });
         });
 
-        it('selecting option: PMK', () => {selectOption(input, optionP);});
+        it('selecting option: PMK', () => { selectOption(input, optionP);});
 
         it('checking filtered data', () => {
             events.each((el) => {
@@ -379,9 +388,22 @@ describe('Wi-fi system log testing: ', () => {
         });
     });
 
+    describe('buttons check', () => {
+        const hide = $('ndm-button[on-click="WSLog.setMinTime"]'),
+            show = $('ndm-button[on-click="WSLog.resetMinTime"]'),
+            trs = $$('tbody .ndm-table__row');
 
+        it('checking "hide" events button', () => {
+            hide.click();
+            browser.wait(until.invisibilityOf(trs, WAIT_TIMEOUT));
+        });
 
-
+        it('checking "show" events button', () => {
+            show.click();
+            browser.wait(until.invisibilityOf(trs, WAIT_TIMEOUT))
+                .then(expect(trs.count()).toEqual(100))
+        });
+    });
 
     afterEach(() => {
         mock.teardown();

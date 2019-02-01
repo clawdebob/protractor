@@ -1,0 +1,365 @@
+{
+  "show": {
+    "version": {
+      "release": "2.15.A.4.0-5",
+      "arch": "mips",
+      "ndm": {
+        "exact": "3-84df21c",
+        "cdate": "25 Jan 2019"
+      },
+      "bsp": {
+        "exact": "2-a102ddf",
+        "cdate": "25 Jan 2019"
+      },
+      "ndw": {
+        "version": "1.6.12",
+        "features": "wifi_button,single_usb_port,led_control,wifi5ghz,dual_image,wifi_ft",
+        "components": "adguard-dns,base,cifs,cloudcontrol,config-ap,config-client,config-repeater,corewireless,ddns,dhcpd,dlna,dot1x,easyconfig,fat,ftp,hfsplus,igmp,ip6,ipsec,kabinet,l2tp,miniupnpd,monitor,mws,nathelper-ftp,nathelper-pptp,nathelper-sip,ntfs,nvox,opkg,pingcheck,ppe,pppoe,pptp,skydns,storage,trafficcontrol,transmission,udpxy,usb,usbdsl,usblte,usbmodem,usbnet,usbserial,vpnserver,ydns"
+      },
+      "manufacturer": "Keenetic Ltd.",
+      "vendor": "Keenetic",
+      "series": "KN",
+      "model": "Extra (KN-1710)",
+      "hw_version": "10178000",
+      "hw_id": "KN-1710",
+      "device": "Extra",
+      "class": "Internet Center",
+      "region": "RU",
+      "description": "Keenetic Extra (KN-1710)"
+    },
+    "system": {
+      "hostname": "Keenetic_Extra",
+      "domainname": "WORKGROUP",
+      "cpuload": 5,
+      "memory": "39948/131072",
+      "swap": "0/262140",
+      "memtotal": 131072,
+      "memfree": 59968,
+      "membuffers": 6976,
+      "memcache": 24180,
+      "swaptotal": 262140,
+      "swapfree": 262140,
+      "uptime": "13913"
+    },
+    "ip": {
+      "hotspot": {
+        "host": [
+          {
+            "mac": "ec:d0:9f:10:22:c8",
+            "via": "ec:d0:9f:10:22:c8",
+            "ip": "192.168.1.2",
+            "hostname": "RedmiNote4-Redmi",
+            "name": "",
+            "interface": {
+              "id": "Bridge0",
+              "name": "Home",
+              "description": "Home network"
+            },
+            "expires": 35351,
+            "registered": false,
+            "access": "permit",
+            "schedule": "",
+            "active": true,
+            "rxbytes": 0,
+            "txbytes": 0,
+            "first-seen": 13856,
+            "last-seen": 1,
+            "link": "up",
+            "ssid": "Keenetic-9280",
+            "ap": "WifiMaster1/AccessPoint0",
+            "authenticated": true,
+            "txrate": 135,
+            "uptime": 3734,
+            "ht": 40,
+            "mode": "11n",
+            "gi": 800,
+            "rssi": -43,
+            "mcs": 7,
+            "txss": 1,
+            "ever-seen": true,
+            "traffic-shape": {
+              "rx": 0,
+              "tx": 0,
+              "mode": "none",
+              "schedule": ""
+            }
+          },
+          {
+            "mac": "00:90:f5:b7:c4:73",
+            "via": "00:90:f5:b7:c4:73",
+            "ip": "192.168.1.36",
+            "hostname": "mcmcc-work",
+            "name": "",
+            "interface": {
+              "id": "Bridge0",
+              "name": "Home",
+              "description": "Home network"
+            },
+            "expires": 36325,
+            "registered": false,
+            "access": "permit",
+            "schedule": "",
+            "active": true,
+            "rxbytes": 4616440,
+            "txbytes": 115621,
+            "uptime": 13811,
+            "first-seen": 13811,
+            "last-seen": 1,
+            "link": "up",
+            "auto-negotiation": true,
+            "speed": 100,
+            "duplex": true,
+            "ever-seen": true,
+            "traffic-shape": {
+              "rx": 0,
+              "tx": 0,
+              "mode": "none",
+              "schedule": ""
+            }
+          },
+          {
+            "mac": "50:ff:20:00:01:01",
+            "via": "50:ff:20:00:01:01",
+            "ip": "192.168.1.10",
+            "hostname": "Keenetic_Air",
+            "name": "Keenetic Air",
+            "system-mode": "ap",
+            "interface": {
+              "id": "Bridge0",
+              "name": "Home",
+              "description": "Home network"
+            },
+            "expires": 26199,
+            "registered": true,
+            "access": "permit",
+            "schedule": "",
+            "active": true,
+            "rxbytes": 62416,
+            "txbytes": 37515,
+            "uptime": 5323,
+            "first-seen": 5324,
+            "last-seen": 1,
+            "link": "up",
+            "auto-negotiation": true,
+            "speed": 100,
+            "duplex": true,
+            "ever-seen": true,
+            "http-port": 80,
+            "description": "Keenetic Air (NDMS 2.14.C.0.0-4): KN-1610",
+            "firmware": "2.14.C.0.0-4",
+            "traffic-shape": {
+              "rx": 0,
+              "tx": 0,
+              "mode": "none",
+              "schedule": ""
+            }
+          },
+          {
+            "mac": "50:ff:20:aa:aa:aa",
+            "via": "50:ff:20:aa:aa:aa",
+            "ip": "192.168.1.14",
+            "hostname": "Keenetic_Giga",
+            "name": "Keenetic Giga",
+            "system-mode": "ap",
+            "interface": {
+              "id": "Bridge0",
+              "name": "Home",
+              "description": "Home network"
+            },
+            "expires": 26199,
+            "registered": true,
+            "access": "permit",
+            "schedule": "",
+            "active": true,
+            "rxbytes": 62416,
+            "txbytes": 37515,
+            "uptime": 5323,
+            "first-seen": 5324,
+            "last-seen": 1,
+            "link": "up",
+            "auto-negotiation": true,
+            "speed": 100,
+            "duplex": true,
+            "ever-seen": true,
+            "http-port": 80,
+            "description": "Keenetic Giga (NDMS 2.14.C.0.0-4): KN-1010",
+            "firmware": "2.14.C.0.0-4",
+            "traffic-shape": {
+              "rx": 0,
+              "tx": 0,
+              "mode": "none",
+              "schedule": ""
+            }
+          },
+          {
+            "mac": "50:ff:20:00:00:14",
+            "via": "50:ff:20:00:00:14",
+            "ip": "192.168.1.20",
+            "hostname": "Keenetic_City",
+            "name": "Keenetic City",
+            "system-mode": "ap",
+            "interface": {
+              "id": "Bridge0",
+              "name": "Home",
+              "description": "Home network"
+            },
+            "expires": 26199,
+            "registered": true,
+            "access": "permit",
+            "schedule": "",
+            "active": true,
+            "rxbytes": 62416,
+            "txbytes": 37515,
+            "uptime": 5323,
+            "first-seen": 5324,
+            "last-seen": 1,
+            "link": "up",
+            "auto-negotiation": true,
+            "speed": 100,
+            "duplex": true,
+            "ever-seen": true,
+            "http-port": 80,
+            "description": "Keenetic City (NDMS 2.14.C.0.0-4): KN-1510",
+            "firmware": "2.14.C.0.0-4",
+            "traffic-shape": {
+              "rx": 0,
+              "tx": 0,
+              "mode": "none",
+              "schedule": ""
+            }
+          },
+          {
+            "mac": "50:ff:20:12:34:56",
+            "via": "50:ff:20:12:34:56",
+            "ip": "192.168.1.24",
+            "hostname": "Keenetic_Ultra",
+            "name": "Keenetic Ultra",
+            "system-mode": "ap",
+            "interface": {
+              "id": "Bridge0",
+              "name": "Home",
+              "description": "Home network"
+            },
+            "expires": 26199,
+            "registered": true,
+            "access": "permit",
+            "schedule": "",
+            "active": true,
+            "rxbytes": 62416,
+            "txbytes": 37515,
+            "uptime": 5323,
+            "first-seen": 5324,
+            "last-seen": 1,
+            "link": "up",
+            "auto-negotiation": true,
+            "speed": 100,
+            "duplex": true,
+            "ever-seen": true,
+            "http-port": 80,
+            "description": "Keenetic Ultra",
+            "firmware": "2.14.C.0.0-4",
+            "traffic-shape": {
+              "rx": 0,
+              "tx": 0,
+              "mode": "none",
+              "schedule": ""
+            }
+          }
+        ]
+      }
+    },
+    "mws": {
+      "candidate": {
+      },
+      "member": [
+          {
+            "cid": "823235c0-0a07-11e8-8000-1134cbe48d76",
+            "model": "Air (KN-1610)",
+            "mac": "50:ff:20:00:01:01",
+            "ip": "192.168.1.10",
+            "mode": "ap",
+            "fw": "2.14.C.0.0-4",
+            "fw-available": "2.14.C.0.0-4",
+            "dual-band": true,
+            "system": {
+              "cpuload": 2,
+              "memory": "25924/65536",
+              "uptime": "23113"
+            },
+            "rci": {
+              "errors": 0
+            }
+        },
+        {
+          "cid": "82ac35c0-0a07-1ae8-1111-11aecbe48d76",
+          "model": "Giga (KN-1010)",
+          "mac": "50:ff:20:aa:aa:aa",
+          "ip": "192.168.1.14",
+          "mode": "ap",
+          "fw": "2.14.C.0.0-4",
+          "fw-available": "2.14.C.0.0-4",
+          "dual-band": true,
+          "system": {
+            "cpuload": 2,
+            "memory": "25924/65536",
+            "uptime": "23113"
+          },
+          "rci": {
+            "errors": 0
+          }
+        },
+        {
+        "cid": "823235c0-0a07-11e8-1111-1134cbe48d76",
+        "model": "City (KN-1510)",
+        "mac": "50:ff:20:00:00:14",
+        "ip": "192.168.1.20",
+        "mode": "ap",
+        "fw": "2.14.C.0.0-4",
+        "fw-available": "2.14.C.0.0-4",
+        "dual-band": true,
+        "system": {
+          "cpuload": 2,
+          "memory": "25924/65536",
+          "uptime": "23113"
+        },
+        "rci": {
+          "errors": 0
+        }
+        },
+        {
+        "cid": "823235c0-0a07-11e8-1111-113412348d76",
+        "model": "Ultra (KN-1810)",
+        "mac": "50:ff:20:12:34:56",
+        "ip": "192.168.1.24",
+        "mode": "ap",
+        "fw": "2.14.C.0.0-4",
+        "fw-available": "2.14.C.0.0-4",
+        "dual-band": true,
+        "system": {
+        "cpuload": 2,
+        "memory": "25924/65536",
+        "uptime": "23113"
+        },
+        "rci": {
+        "errors": 0
+        }
+        }
+      ]
+    },
+    "rc": {
+      "service": {
+        "dhcp": true,
+        "dns-proxy": true,
+        "igmp-proxy": true,
+        "mws": true,
+        "http": true,
+        "cifs": true,
+        "telnet": true,
+        "ntp-client": true,
+        "upnp": true,
+        "cloud-control": true,
+        "cloud-control2": true
+      }
+    }
+  }
+}

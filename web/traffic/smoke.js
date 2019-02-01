@@ -29,7 +29,6 @@ describe('traffic monitor smoke test', () => {
                 '};'+
                 'xhr.send("{}");', type, uri);
         }
-
         beforeAll(() => {
             request('POST', 'rci/known/host?name=foo&mac=44:44:44:44:44:44');
             request('POST', 'rci/known/host?name=test&mac=22:22:22:22:22:22');
@@ -58,7 +57,8 @@ describe('traffic monitor smoke test', () => {
 
         describe('checking visibility of graph\'s data', () => {
             let bars = null;
-            const username = element(by.cssContainingText('.page-traffic-monitor__table__legend__host-list__item__title','admin'));
+            const username = element(by.cssContainingText('.page-traffic-monitor__table__legend__host-list__item__title','admin')),
+                page = element(by.className('ndm-bar-chart'));
 
             it('checking visibility of graphs data for current device', () => {
                 const userrect = element(by.css('.page-traffic-monitor__table__legend__host-list__item__rect'));
@@ -80,9 +80,24 @@ describe('traffic monitor smoke test', () => {
                             expect(bars.count()).not.toBeLessThan(1);
                         });
                     });
+
+                    browser.driver
+                    .wait(() => {
+                        return page.getAttribute('ng-class')
+                        .then((res) => {
+
+                            return page.evaluate(res)
+                            .then((r) => {
+                                console.log(r);
+
+                                return r['ndm-bar-chart--loading']==false;
+                            });
+                        });
+                    });
             });
             it('checking visibility of graphs data on all radio tabs',() => {
                 const radio = element.all(by.repeater('(id, item) in model'));
+                let first=true;
                 radio.each((el) => {
                     browser.driver
                         .wait(() => {
@@ -90,16 +105,65 @@ describe('traffic monitor smoke test', () => {
 
                             return el;
                         }).then((el) => {
-                            browser.sleep(500);
+                            if(!first){
                             el.click();
+                            browser.driver
+                            .wait(() => {
+                                return el.getAttribute('ng-disabled')
+                                .then((res) => {
+
+                                    return el.evaluate(res)
+                                    .then((r) => {
+                                        return r==true;
+                                    });
+                                });
+                            });
+                            } else {
+                                first=false;
+                            }
                         }).then(() => {
+                            browser.driver
+                                .wait(() => el.getAttribute('ng-disabled')
+                                    .then((res) => el.evaluate(res)
+                                        .then((r) => {console.log(r); return r === false;})));
                             browser.wait(until.visibilityOf(username), 10000, 'username was\'t found');
                             browser.wait(until.visibilityOf(bars.get(0)), 10000, 'bars was\'t found');
                             expect(bars.count()).not.toBeLessThan(1);
                         });
                 }).then(() => {
-                    browser.sleep(500);
-                    radio.get(0).click();
+                    browser.actions()
+                        radio.get(0).click().then(() => {
+                            browser.driver
+                            .wait(() => {
+                                return radio.get(0).getAttribute('ng-disabled')
+                                .then((res) => {
+
+                                    return radio.get(0).evaluate(res)
+                                    .then((r) => {
+                                        return r==true;
+                                    });
+                                });
+                            });
+                        })
+                        .then(() => {
+                            browser.driver
+                            .wait(() => {
+                                return radio.get(0).getAttribute('ng-disabled')
+                                .then((res) => {
+
+                                    return radio.get(0).evaluate(res)
+                                    .then((r) => {
+
+                                        return r==false;
+                                    });
+                                });
+                            });
+                        })
+                        .then(() => {
+                            browser.wait(until.visibilityOf(username), 10000, 'username was\'t found');
+                            browser.wait(until.visibilityOf(bars.get(0)), 10000, 'bars was\'t found');
+                            expect(bars.count()).not.toBeLessThan(1);
+                        })
                 });
             });
         });
@@ -128,8 +192,10 @@ describe('traffic monitor smoke test', () => {
                         return tab;
                     })
                     .then((tab) => {
-                        browser.sleep(500);
-                        tab.click();
+                        browser.actions()
+                            .mouseMove(tab, {x: 2, y: 2})
+                            .click()
+                            .perform();
                         browser.wait(until.visibilityOf(device_admin), 10000, 'device was\'t found');
                     })
                     .then(() => {
@@ -147,9 +213,10 @@ describe('traffic monitor smoke test', () => {
 
                                 return tab;
                             }).then((tab) => {
-
-                                browser.sleep(500);
-                                tab.click();
+                                browser.actions()
+                                    .mouseMove(tab, {x: 5, y: 5})
+                                    .click()
+                                    .perform();
                                 browser.wait(until.visibilityOf(device_foo), 10000, 'device was\'t found');
                             }).then(() => {
                                 device_foo.click();
@@ -164,8 +231,10 @@ describe('traffic monitor smoke test', () => {
                                     return tab;
                             }).then((tab) => {
 
-                                browser.sleep(500);
-                                tab.click();
+                                browser.actions()
+                                    .mouseMove(tab, {x: 5, y: 5})
+                                    .click()
+                                    .perform();
                                 browser.wait(until.visibilityOf(device_test), 10000, 'device was\'t found');
                             }).then(() => {
                                 device_test.click();
@@ -191,15 +260,18 @@ describe('traffic monitor smoke test', () => {
                         .mouseMove(close.get(0), {x: 5, y: 5})
                         .click()
                         .perform();
-                    browser.sleep(2000);
+                    browser.wait(until.invisibilityOf(host_admin), 10000, 'selected tab is not correct');
                 })
                 .then(() => {
                     browser.wait(until.visibilityOf(host_test), 10000, 'selected tab is not correct');
+                    browser.wait(until.invisibilityOf(tab_test), 10000, 'selected tab is not correct');
                 });
             });
             it('closing last tab', () => {
-                tab_test.click().then(() => {
-                    browser.wait(until.visibilityOf(host_test), 10000, 'selected tab is not correct');
+                browser.actions()
+                    .mouseMove(tab_test, {x: 5, y: 5})
+                    .click()
+                    .perform().then(() => {
                     close.get(0).click();
                     browser.wait(until.visibilityOf(host_admin), 10000, 'selected tab is not correct');
                 });
